@@ -1,0 +1,555 @@
+/* Global Variable */
+:root {
+    --main-color: #10cab7;
+    --main-duration: .5s;
+    --special-background: #f6f6f6;
+    --paragraph-color: #777;
+}
+
+
+/* Start Global Rules */
+
+* {
+    /* box sizing make width contain the element and border and the padding  */
+    /* the prefix used to test the feature which not fully supported  */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+
+}
+
+body {
+    font-family: "Work-Sans", sans-serif;
+}
+
+
+.parent {
+    background-color: #eee;
+}
+
+
+.container {
+    /* الودس دا مش هينفع في الريسبونس لان انا مسبتاه فلما اجي اكبر او اصغر الشاشة هيظهر اسكرول كدا عند التصغير ف الحل ان اضف media query */
+    /* width: 600px; */
+    margin: 0 auto 0 auto;
+    padding: 0 15px 0 15px;
+}
+
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+
+
+.special-heading {
+    text-align: center;
+    font-size: 100px;
+    letter-spacing: -3px;
+    /* color: #ebeced; */
+    color: #cbced2;
+    margin: 0;
+    padding-top: 15px;
+}
+
+.special-heading+p {
+    text-align: center;
+    margin-top: -28px;
+    color: var(--paragraph-color);
+}
+
+@media(max-width:768px) {
+    .special-heading {
+        font-size: 60px;
+    }
+
+    .special-heading+p {
+        margin-top: -20px;
+    }
+}
+
+
+
+/* End Global Rules */
+
+
+/* Start The Header */
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+}
+
+.header .logo {
+    width: 60px;
+}
+
+.header .links {
+    position: relative;
+    margin-right: 5px;
+
+}
+
+.header .links:hover .icon span:nth-child(2),
+.header .links:hover ul {
+    width: 100%;
+    display: block;
+}
+
+.header .links .icon {
+    width: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.header .links .icon span {
+    background-color: #444;
+    margin-bottom: 3px;
+    height: 3px;
+    width: 100%;
+    transition: var(--main-duration);
+}
+
+.header .links .icon span:nth-child(2) {
+    width: 50%;
+}
+
+.header ul {
+    padding: 0;
+    list-style: none;
+    background-color: #f6f6f6;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    min-width: 200px;
+    display: none;
+    z-index: 1;
+}
+
+.header ul::before {
+    content: "";
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent transparent #c9c4c4bc transparent;
+    position: absolute;
+    right: 5px;
+    top: -30px;
+
+}
+
+.header ul a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    display: inline-block;
+    
+}
+
+.header ul li {
+    border-bottom: 3px solid #ddd;
+    transition: var(--main-duration);
+}
+
+.header ul li:hover {
+    padding-left: 10px;
+}
+
+/* End The Header */
+
+
+/* Start Landing Section  */
+
+.landing {
+    margin-top: 30px;
+    background-image: url(../images/landing.jpg);
+    background-size: cover;
+    height: calc(100vh - 80px);
+    position: relative;
+}
+
+.landing .name1{
+    padding: 20px;
+ }
+
+.landing .intro-text {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 320px;
+    max-width: 100%;
+}
+
+.landing .intro-text h1 {
+    color: var(--main-color);
+    font-size: 3em;
+}
+
+.landing .intro-text p {
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+/* End Landing Section  */
+
+
+/* Start Feature */
+
+.feature {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: var(--special-background);
+}
+
+.feature .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 30px;
+}
+
+.feature .container .feat {
+    text-align: center;
+}
+
+.feature .container .feat i {
+    color: var(--main-color);
+    font-size: 3em;
+}
+
+.feature .container .feat h3 {
+    font-weight: 800;
+}
+
+.feature .container .feat p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--paragraph-color);
+    text-align: left;
+}
+
+/* End Feature */
+
+/* Start services */
+.services .service-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 30px;
+    margin-top: 100px;
+}
+
+.services .service-content .srv {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+    .services .service-content .srv {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.services .srv i {
+    color: var(--main-color);
+    font-size: 35px;
+    margin: -6px 10px 0 0;
+    /* its width 60px ,it take a height and which come next take the reminder area */
+    flex-basis: 60px;
+}
+
+.services .srv .text {
+    /* the reminder Area */
+    flex: 1;
+}
+
+.services .srv h3 {
+    margin: 0;
+}
+
+.services .srv p {
+    line-height: 1.6;
+    color: var(--paragraph-color);
+    font-weight: 300;
+
+}
+
+.services .service-content .image {
+    margin-right: 2px;
+    text-align: center;
+    position: relative;
+}
+
+.services .service-content .image img {
+    width: 260px;
+}
+
+.services .service-content .image::before {
+    content: "";
+    background-color: #444;
+    width: 100px;
+    height: calc(100% + 100px);
+    top: -50px;
+    position: absolute;
+    right: 0;
+    /* behind the image  */
+    z-index: -1;
+}
+
+@media (max-width: 1199px) {
+    .services .service-content .image {
+        display: none;
+    }
+}
+
+/* End services */
+
+
+/* Start portfolio */
+
+.portfolio {
+    margin: 100px 0 0 0;
+    background-color: var(--special-background);
+}
+
+.portfolio-content {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+
+}
+
+.portfolio-content .card {
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 70px;
+}
+
+.portfolio-content .card img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.portfolio-content .card h3 {
+    padding-left: 10px;
+}
+
+.portfolio-content .card p {
+    color: var(--paragraph-color);
+    padding-left: 10px;
+}
+
+/* End portfolio */
+
+
+/* Start About */
+
+.about {
+    /* background-color: white; */
+}
+
+.about-content {
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 100px;
+}
+
+@media(max-width:991px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.about-content .image {
+    position: relative;
+    width: 250px;
+    height: 375px;
+}
+
+.about-content .image img {
+    max-width: 100%;
+}
+
+@media(max-width:991px) {
+
+    .about-content .image {
+        margin: 0 auto 0;
+    }
+}
+
+.about-content .image::before {
+    content: "";
+    background-color: #d2d4d7;
+    position: absolute;
+    left: -20px;
+    width: 60px;
+    height: calc(100% + 80px);
+    top: -40px;
+    z-index: -1;
+
+}
+
+.about-content .image::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80%;
+    border-bottom: 80px solid var(--main-color);
+    border-left: 80px solid var(--main-color);
+    right: -122px;
+    z-index: -1;
+    top: -10%;
+
+}
+
+@media(max-width:991px) {
+
+    .about-content .image::before,
+    .about-content .image::after {
+        display: none;
+    }
+}
+
+.about .about-content .text {
+    flex-basis: calc(100% - 500px);
+}
+
+.about .about-content .text p:first-of-type {
+    padding-top: 30px;
+    font-weight: bold;
+    line-height: 1.8;
+
+}
+
+.about .about-content .text hr {
+    width: 50%;
+    display: inline-block;
+    border-color: var(--main-color);
+}
+
+.about .about-content .text p:last-of-type {
+    color: var(--paragraph-color);
+    line-height: 1.8;
+}
+
+/* End About */
+
+
+/* Start Contact */
+.contact {
+    background-color: var(--special-background);
+    text-align: center;
+}
+
+.contact .container h2{
+    padding-top: 70px;
+}
+
+.contact .content-contact h2 {
+    font-size: 35px;
+}
+@media(max-width:991px) {
+    .contact .content-contact h2
+    {
+        font-size: 23px;
+    }
+}
+
+.contact .content-contact .email{
+   margin-bottom: 30px;
+    
+}
+
+.contact .content-contact .email a{
+text-decoration: none;
+color: var(--main-color);
+font-size: 2em;
+}
+
+@media(max-width:991px) {
+    .contact .content-contact .email a{
+        font-size: 21px;
+    }
+}
+
+.contact .content-contact .social{
+    font-size: 20px;
+    padding-bottom: 100px;
+}
+
+@media(max-width:991px) {
+    .contact .content-contact .social{
+        font-size: 16px;
+    }
+}
+
+
+
+/* End Contact */
+
+/* Start Footer */
+
+.footer{
+    background-color:#444;
+}
+
+
+.footer .text{
+    display: flex;
+    justify-content: space-around;
+    height:150px;
+    align-items: center;
+}
+
+@media(max-width:991px) {
+    .footer .text
+    {
+       flex-direction: column;
+       text-align: center;
+    }
+}
+
+.footer .text p {
+    margin: 0;
+    font-size: 20px;
+}
+
+.footer .text span{
+    color: var(--main-color);
+}
+
+.footer .text div{
+    font-size: 18px;
+}
+
+
+
+
+
+/* End Footer */
